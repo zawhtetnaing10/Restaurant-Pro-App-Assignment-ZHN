@@ -3,10 +3,14 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	android:layout_width="match_parent"
 	android:layout_height="250dp"
+	android:id="@+id/cvFood"
+	android:clickable="true"
+	android:foreground="@drawable/ripple"
 	android:layout_marginTop="@dimen/margin_medium_2"
 	android:elevation="0dp"
 	app:cardBackgroundColor="@color/colorPrimary"
-	app:cardCornerRadius="@dimen/margin_medium_2">
+	app:cardCornerRadius="@dimen/margin_medium_2"
+	android:focusable="true">
 
 
 	<FrameLayout

@@ -1,6 +1,7 @@
 package com.zawhtetnaing.restaurant.view.holders
 
 import android.graphics.Bitmap
+import android.view.TouchDelegate
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -8,10 +9,12 @@ import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.request.RequestOptions
 import com.zawhtetnaing.restaurant.R
+import com.zawhtetnaing.restaurant.delegates.FoodListItemActionDelegate
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
 import kotlinx.android.synthetic.main.view_item_food.view.*
 
-class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class FoodViewHolder(itemView: View,
+                     private val mDelegate: FoodListItemActionDelegate) : RecyclerView.ViewHolder(itemView) {
     init {
         Glide.with(itemView)
                 .load(R.drawable.french_fries)
@@ -21,5 +24,9 @@ class FoodViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
                         RoundedCornersTransformation(32, 0, RoundedCornersTransformation.CornerType.TOP_LEFT)
                         )))
                 .into(itemView.ivFood)
+
+        itemView.cvFood.setOnClickListener {
+            mDelegate.onTapFood()
+        }
     }
 }

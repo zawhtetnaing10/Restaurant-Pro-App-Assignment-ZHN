@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.zawhtetnaing.restaurant.R
 import com.zawhtetnaing.restaurant.adapters.FoodAdapter
+import com.zawhtetnaing.restaurant.delegates.FoodListItemActionDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),FoodListItemActionDelegate {
+
 
     private lateinit var mAdapter: FoodAdapter
 
@@ -23,12 +25,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpRecyclerView() {
-        mAdapter = FoodAdapter()
+        mAdapter = FoodAdapter(this)
         with(rvFood) {
             adapter = mAdapter
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
 
+    override fun onTapFood() {
+        startActivity(RestaurantDetailsActivity.newIntent(applicationContext))
+    }
 
 }
