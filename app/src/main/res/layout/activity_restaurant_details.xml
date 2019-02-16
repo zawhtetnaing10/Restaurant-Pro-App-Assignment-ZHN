@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".activities.RestaurantDetailsActivity">
+
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/colorPrimary"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+		<ImageView
+			android:id="@+id/ivFoodBackground"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			android:scaleType="centerCrop"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHeight_default="percent"
+			app:layout_constraintHeight_percent="0.5"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:srcCompat="@drawable/french_fries" />
+
+		<TextView
+			android:id="@+id/tvFoodTitle"
+			style="@style/detail_text"
+			android:layout_width="150dp"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="24dp"
+			android:layout_marginTop="16dp"
+			android:elevation="@dimen/margin_small"
+			android:lineSpacingMultiplier="1.2"
+			android:text=" French Fries and Mustard"
+			android:textColor="@android:color/white"
+			android:textSize="@dimen/text_heading_1x"
+			android:textStyle="bold"
+			app:layout_constraintStart_toStartOf="@+id/cvFoodDetails"
+			app:layout_constraintTop_toTopOf="@+id/cvFoodDetails" />
+
+		<androidx.cardview.widget.CardView
+			android:id="@+id/cvFoodDetails"
+			android:layout_width="0dp"
+			android:layout_height="430dp"
+			android:layout_marginStart="24dp"
+			android:layout_marginTop="8dp"
+			android:layout_marginEnd="24dp"
+			android:layout_marginBottom="8dp"
+			app:cardBackgroundColor="@color/colorPrimaryLight"
+			app:cardCornerRadius="@dimen/margin_medium_2"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintHorizontal_bias="0.0"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="@+id/ivFoodBackground"
+			app:layout_constraintVertical_bias="0.90999997">
+
+		</androidx.cardview.widget.CardView>
+
+		<FrameLayout
+			android:id="@+id/flNearMe"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@id/flShopPhoto"
+			android:layout_alignParentEnd="true"
+			android:layout_marginTop="24dp"
+			android:layout_marginEnd="32dp"
+			android:background="@drawable/circle_background_blue"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toEndOf="@+id/cvFoodDetails"
+			app:layout_constraintTop_toTopOf="@+id/cvFoodDetails">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_near_me_white_18dp" />
+
+		</FrameLayout>
+
+		<FrameLayout
+			android:id="@+id/flDelivery"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@id/flShopPhoto"
+			android:layout_alignParentEnd="true"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="16dp"
+			android:background="@drawable/circle_background_grey"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toEndOf="@+id/cvFoodDetails"
+			app:layout_constraintStart_toEndOf="@+id/flMap"
+			app:layout_constraintTop_toBottomOf="@+id/tvFoodDescription">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_shop_green" />
+
+		</FrameLayout>
+
+		<FrameLayout
+			android:id="@+id/flMap"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@id/flShopPhoto"
+			android:layout_alignParentEnd="true"
+			android:background="@drawable/circle_background_grey"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toStartOf="@+id/flDelivery"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toEndOf="@+id/flTime"
+			app:layout_constraintTop_toTopOf="@+id/flDelivery">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_map_red_24dp" />
+
+		</FrameLayout>
+
+		<FrameLayout
+			android:id="@+id/flLocation"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@id/flShopPhoto"
+			android:layout_alignParentEnd="true"
+			android:layout_marginStart="8dp"
+			android:background="@drawable/circle_background_grey"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toStartOf="@+id/flTime"
+			app:layout_constraintHorizontal_bias="0.0"
+			app:layout_constraintStart_toStartOf="@+id/cvFoodDetails"
+			app:layout_constraintTop_toTopOf="@+id/flTime">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_my_location_green_24dp" />
+
+		</FrameLayout>
+
+		<FrameLayout
+			android:id="@+id/flTime"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignTop="@id/flShopPhoto"
+			android:layout_alignParentEnd="true"
+			android:background="@drawable/circle_background_grey"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toStartOf="@+id/flMap"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toEndOf="@+id/flLocation"
+			app:layout_constraintTop_toTopOf="@+id/flMap">
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:src="@drawable/ic_time_blue" />
+
+		</FrameLayout>
+
+		<TextView
+			android:id="@+id/tvFoodDescription"
+			style="@style/detail_text"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="Eric Rimm, a professor at the Harvard T. H. Chan School of Public Health, recently told the New York Times that everyone’s favourite vegetable, the potato, is nothing more than a starch bomb. He argued potatoes rank near the bottom of “healthful vegetables” and lack nutrients found in other veggies like leafy greens.  If you take a potato, peel it, deep fry it and coat it with salt, cheese, gravy or chili, it becomes “a weapon of dietary destruction.”"
+			android:textColor="@android:color/darker_gray"
+			app:layout_constraintEnd_toEndOf="@+id/flNearMe"
+			app:layout_constraintStart_toStartOf="@+id/tvFoodTitle"
+			app:layout_constraintTop_toBottomOf="@+id/tvFoodTitle" />
+
+		<TextView
+			android:id="@+id/tvLocation"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="1.5km"
+			android:textColor="@android:color/darker_gray"
+			android:textSize="@dimen/text_small"
+			app:layout_constraintEnd_toEndOf="@+id/flLocation"
+			app:layout_constraintStart_toStartOf="@+id/flLocation"
+			app:layout_constraintTop_toBottomOf="@+id/flLocation" />
+
+		<TextView
+			android:id="@+id/tvTime"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="10am-10pm"
+			android:textColor="@android:color/darker_gray"
+			android:textSize="@dimen/text_small"
+			app:layout_constraintEnd_toEndOf="@+id/flTime"
+			app:layout_constraintStart_toStartOf="@+id/flTime"
+			app:layout_constraintTop_toBottomOf="@+id/flLocation" />
+
+		<TextView
+			android:id="@+id/tvMap"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="Map View"
+			android:textColor="@android:color/darker_gray"
+			android:textSize="@dimen/text_small"
+			app:layout_constraintEnd_toEndOf="@+id/flMap"
+			app:layout_constraintStart_toStartOf="@+id/flMap"
+			app:layout_constraintTop_toBottomOf="@+id/flLocation" />
+
+		<TextView
+			android:id="@+id/tvDelivery"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:text="Delivery"
+			android:textColor="@android:color/darker_gray"
+			android:textSize="@dimen/text_small"
+			app:layout_constraintEnd_toEndOf="@+id/flDelivery"
+			app:layout_constraintStart_toStartOf="@+id/flDelivery"
+			app:layout_constraintTop_toBottomOf="@+id/flLocation" />
+
+		<TextView
+			android:id="@+id/tvDetails"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="8dp"
+			android:text="DETAILS"
+			android:textColor="@android:color/white"
+			android:textSize="@dimen/text_regular_2x"
+			app:layout_constraintEnd_toStartOf="@+id/view2"
+			app:layout_constraintStart_toStartOf="@+id/view"
+			app:layout_constraintTop_toBottomOf="@+id/view" />
+
+		<TextView
+			android:id="@+id/tvMenu"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="8dp"
+			android:layout_marginTop="16dp"
+			android:layout_marginEnd="8dp"
+			android:text="MENUS"
+			android:textColor="@android:color/white"
+			android:textSize="@dimen/text_regular_2x"
+			app:layout_constraintEnd_toStartOf="@+id/view3"
+			app:layout_constraintStart_toStartOf="@+id/view2"
+			app:layout_constraintTop_toBottomOf="@+id/view" />
+
+		<TextView
+			android:id="@+id/tvReviews"
+			style="@style/detail_text"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+			android:text="REVIEWS"
+			android:textColor="@android:color/white"
+			android:textSize="@dimen/text_regular_2x"
+			app:layout_constraintEnd_toEndOf="@+id/view3"
+			app:layout_constraintStart_toStartOf="@+id/view3"
+			app:layout_constraintTop_toBottomOf="@+id/view" />
+
+		<View
+			android:id="@+id/view"
+			android:layout_width="0dp"
+			android:layout_height="2dp"
+			android:layout_marginTop="20dp"
+			android:background="@android:color/white"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toStartOf="@+id/view2"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toStartOf="@+id/cvFoodDetails"
+			app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+		<View
+			android:id="@+id/view2"
+			android:layout_width="0dp"
+			android:layout_height="2dp"
+			android:layout_marginTop="20dp"
+			android:background="@color/design_default_color_on_secondary"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toStartOf="@+id/view3"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toEndOf="@+id/view"
+			app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+		<View
+			android:id="@+id/view3"
+			android:layout_width="0dp"
+			android:layout_height="2dp"
+			android:layout_marginTop="20dp"
+			android:background="@color/design_default_color_on_secondary"
+			android:elevation="@dimen/margin_small"
+			app:layout_constraintEnd_toEndOf="@+id/cvFoodDetails"
+			app:layout_constraintHorizontal_bias="0.5"
+			app:layout_constraintStart_toEndOf="@+id/view2"
+			app:layout_constraintTop_toBottomOf="@+id/tvLocation" />
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
