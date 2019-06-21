@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(),FoodListItemActionDelegate {
 
         setUpRecyclerView()
 
-        print("Hello Restaurants")
+        print("Hello Restaurants Animation")
     }
 
     private fun setUpRecyclerView() {
