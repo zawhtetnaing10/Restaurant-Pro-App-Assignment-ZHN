@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity(),FoodListItemActionDelegate {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-
         setUpRecyclerView()
+
+        print("Hello Restaurants")
     }
 
     private fun setUpRecyclerView() {
